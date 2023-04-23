@@ -16,7 +16,6 @@
 #include <deque>
 
 using namespace std::chrono;
-
 using std::cout;
 using std::cin;
 using std::endl;
@@ -65,10 +64,67 @@ using std::merge;
 using std::stable_sort;
 using std::remove_if;
 using std::copy_if;
+using std::istream;
+using std::ostream;
 
 
-struct studentas {
-    string vardas = "", pavarde = "";
-    double galutinisVid = 0, galutinisMed = 0;
-    vector<int> paz_vec;
+// struct studentas {
+//     string vardas = "", pavarde = "";
+//     double galutinisVid = 0, galutinisMed = 0;
+//     vector<int> paz_vec;
+// };
+
+class Studentas {
+private:
+    string mVardas;
+    string mPavarde;
+    double mGalutinisVid;
+    double mGalutinisMed;
+
+public:
+    Studentas() : mGalutinisVid(0), mGalutinisMed(0) {}
+    Studentas(const string& vardas, const string& pavarde, vector<int>& pazVec, const int& egzaminas) :
+        mVardas(vardas), mPavarde(pavarde) {
+        skaiciuotiGalutinius(pazVec, egzaminas);
+    }
+    
+    void setVardas(const string& vardas) { mVardas = vardas; }
+    void setPavarde(const string& pavarde) { mPavarde = pavarde; }
+    void setGalutiniai(vector<int>& pazVec, const int& egzaminas) {
+        skaiciuotiGalutinius(pazVec, egzaminas); }
+
+    string getVardas() const { return mVardas; }
+    string getPavarde() const { return mPavarde; }
+    double getGalutinisVid() const { return mGalutinisVid; }
+    double getGalutinisMed() const { return mGalutinisMed; }
+
+    void skaiciuotiGalutinius(vector<int>& pazVec, const int& egzaminas) {
+        int size = pazVec.size();
+
+        mGalutinisVid = (0.4 * accumulate(pazVec.begin(), pazVec.end(), 0) / size) + (0.6 * egzaminas);
+
+        sort(pazVec.begin(), pazVec.end());
+        if (size % 2 == 0) {
+            mGalutinisMed = (0.4 * (double)((pazVec[size/2 - 1] + pazVec[size/2]) / 2) + 0.6 * egzaminas);
+        }
+        else {
+            mGalutinisMed = (0.4 * pazVec[size / 2]) + (0.6 * egzaminas);
+        }
+
+        pazVec.clear();
+    }
+
+    static bool varduPalyginimas(const Studentas& a, const Studentas& b) {
+        if (a.getPavarde() == b.getPavarde())
+            return a.getVardas() < b.getVardas();
+        else
+            return a.getPavarde() < b.getPavarde();
+    }
+
+    friend ostream& operator<<(ostream& output, const Studentas& s) {
+        output << left << setw(15) << s.mVardas << setw(21) << s.mPavarde
+            << setw(19) << fixed << setprecision(2) << s.mGalutinisVid
+            << setw(20) << fixed << setprecision(2) << s.mGalutinisMed << "\n";
+        return output;
+    }
 };

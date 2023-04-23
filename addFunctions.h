@@ -2,13 +2,12 @@
 #include "mylib.h"
 
 int randomSkaicius();
-double skaicVid(vector<int> &paz_vec);
-double skaicMed(vector<int> &paz_vec);
-void naudotojoIvestis(vector<studentas> &grupe);
-void pild(studentas &temp);
+void failoGeneravimas();
+void naudotojoIvestis(vector<Studentas>& grupe);
+void pildymas(Studentas& temp);
 void output_template();
-void spausd(studentas &temp, string outputPasirinkimas);
-bool regexPalyginimas(const studentas& a, const studentas& b);
+void spausdinimas(Studentas& temp, string outputPasirinkimas);
+bool regexPalyginimas(const Studentas& a, const Studentas& b);
 bool getBoolInput();
 bool isNumber(const string& str);
 string getChoiceInput();

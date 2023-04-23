@@ -9,7 +9,6 @@
 #include <random>
 #include <chrono>
 #include <sstream>
-#include <regex>
 #include <omp.h>
 #include <execution>
 #include <list>
@@ -41,9 +40,6 @@ using std::ofstream;
 using std::stringstream;
 using std::stoi;
 using std::getline;
-using std::smatch;
-using std::regex;
-using std::regex_search;
 using std::exit;
 using std::fixed;
 using std::invalid_argument;

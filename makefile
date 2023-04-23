@@ -2,9 +2,9 @@ CXX = g++
 CXXFLAGS = -std=c++20 -march=native -O3
 INSTALL_PATH = "./"
 
-SRC_FILES = main.cpp addFunctions.cpp vector.cpp deque.cpp list.cpp
+SRC_FILES = main.cpp addFunctions.cpp
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
-BIN_FILES = main vector deque list
+BIN_FILES = main
 
 .PHONY: all clean install
 

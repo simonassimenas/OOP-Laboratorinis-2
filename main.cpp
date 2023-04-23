@@ -125,11 +125,9 @@ void failoIrasymas(vector<Studentas>& grupe, int partPoint) {
             fout_s << string(70, '-') << "\n";
 
             for (int i = 0; i < partPoint; i++) {
-                const auto& temp = grupe[i];
                 fout_v << grupe[i];
             }
             for (int i = partPoint; i < grupe.size(); i++) {
-                const auto& temp = grupe[i];
                 fout_s << grupe[i];
             }
 

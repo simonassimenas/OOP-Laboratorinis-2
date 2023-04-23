@@ -179,24 +179,6 @@ void spausdinimas(Studentas &temp, const string outputPasirinkimas) {
         cout << "                   " << setw(4) << setprecision(3) << temp.getGalutinisMed() << "\n";
 }
 
-bool regexPalyginimas(const Studentas& a, const Studentas& b) {
-    regex vardoStruktura("[^0-9]*([0-9]+)");
-    smatch aMatch, bMatch;
-
-    regex_search(a.getVardas(), aMatch, vardoStruktura);
-    regex_search(b.getVardas(), bMatch, vardoStruktura);
-
-    int aNumber = stoi(aMatch[1].str());
-    int bNumber = stoi(bMatch[1].str());
-
-    if (aNumber != bNumber) {
-        return aNumber < bNumber;
-    }
-    else {
-        return a.getPavarde() < b.getPavarde();
-    }
-}
-
 bool getBoolInput() {
     bool input;
 

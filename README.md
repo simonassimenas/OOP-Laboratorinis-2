@@ -1,7 +1,7 @@
 
-# OOP - Pirmas laboratorinis darbas
+# OOP - Antras laboratorinis darbas
 
-## v1.0
+## v1.1
 
 ## Aprašymas
 

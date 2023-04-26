@@ -382,6 +382,8 @@ Apskaičiavus gautinius įvestų studentų balus, programa išveda duomenis į f
 2. Du nauji konteineraiai
 3. Find if metodas
 
+# ----------------------------------------
+
 ## Versijų v1.1 ir v1.0 palyginimas
 
 Kodas atnaujintas naudojant **klases** vietoje **struktūrų**.
@@ -409,9 +411,10 @@ Nors kodas naudojant **klases** yra kiek lėtesnis, tačiau kompiuteris mažiau 
 
 ### Optimizavimo vėliavėlės
 
-Dydis - executable failo dydis.
+Naudojamos **klasės**.
+Dydis - UNIX executable failo dydis.
 
-|        | -         | -O1      | -O2      | -O3      |
+|        | None      | -O1      | -O2      | -O3      |
 |--------|-----------|----------|----------|----------|
 | Laikas | 202.71342 | 56.16776 | 55.16053 | 55.70447 |
 | Dydis  | 186KB     | 83KB     | 83KB     | 83KB     |

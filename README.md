@@ -382,5 +382,45 @@ Apskaičiavus gautinius įvestų studentų balus, programa išveda duomenis į f
 2. Du nauji konteineraiai
 3. Find if metodas
 
-## Versijų v1.0 ir v1.0 palyginimas
+## Versijų v1.1 ir v1.0 palyginimas
 
+Kodas atnaujintas naudojant **klases** vietoje **struktūrų**.
+
+Visos funkcijos buvo perkeltos į "addFunctions.cpp" bei dabar naudojamas vienas header failas "library.h", kuriame saugomos naudojamos bibliotekos, studento klase ir jos metodai bei "addFunctions.cpp" funkcijų prototipai.
+
+### Greičių palyginimas
+
+Bandymui naudoti skirtingi studentų failai, kuriuose kiekvienas studentas turi 10 namų darbų pažymių.
+
+|           | 1'000    | 10'000    | 100'000  | 1'000'000 | 10'000'000 |
+|-----------|----------|-----------|----------|-----------|------------|
+| Struktūra | 0.009857 | 0.0641111 | 0.528724 | 5.047523  | 51.98248   |
+| Klasė     | 0.012061 | 0.0684381 | 0.587833 | 5.620732  | 55.70447   |
+
+#### RAM Apkrova
+
+Bandymas atliktas naudojant 10'000'000 studentų failą iš kurių kiekvienas turėjo 10 namų darbų pažymių. Taip pat buvo naudotos kompiliatoriaus vėliavėlės: -O3, -march=native, veikimo pagreitinimui.
+
+Naudojant **klases** programos RAM apkrovimas daugiausiai pasiekia 686MB, kol naudojant **struktūras** net 893MB.
+
+#### Išvada
+
+Nors kodas naudojant **klases** yra kiek lėtesnis, tačiau kompiuteris mažiau apkraunamas. Taip pat kodas tampa įskaitomesnis ir patogesnis, kadangi nereikia rašyti pasikartoti skirtingose funkcijose bei galima lengviau naviguoti kodą, suprasti kokiai klasei priklauso kokie metodai.
+
+### Optimizavimo vėliavėlės
+
+Dydis - executable failo dydis.
+
+|        | -         | -O1      | -O2      | -O3      |
+|--------|-----------|----------|----------|----------|
+| Laikas | 202.71342 | 56.16776 | 55.16053 | 55.70447 |
+| Dydis  | 186KB     | 83KB     | 83KB     | 83KB     |
+
+#### Išvada
+
+Prielaida: -O3 vėliavėlė bus greičiausia
+Prielaida nepasiteisino, kadangi greičiausiai kodas veikė su -O2 vėliavėle.
+
+Taip pat galime pastebėti, kad vienintelis didelis pasikeitimas buvo nenaudojant jokios optimizavimo vėliavėlės. Nenaudojant failo dydis išaugo daugiau nei 3 kartus, o programos veikimo laikas išaugo apie 4 kartus.
+
+Įdomu tai, jog naudojant skirtingas optimizavimo vėliavėles failo dydis buvo beveik identiškas, o programos veikimo laikas taip pat labai panašus.

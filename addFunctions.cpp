@@ -1,10 +1,6 @@
 #include "library.h"
 
-void failoSkaitymas(vector<Studentas>& grupe) {
-    system("ls *.txt");
-    cout << "Iveskite failo pavadinima(is saraso):\n";
-    string filename = getStringInput();
-
+void failoSkaitymas(vector<Studentas>& grupe, string filename) {
     const int bufDydis = 1024 * 1024 * 100;
     char* buferis = new char[bufDydis];
 

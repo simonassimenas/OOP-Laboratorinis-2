@@ -155,7 +155,7 @@ public:
     }
 };
 
-void failoSkaitymas(vector<Studentas>& grupe);
+void failoSkaitymas(vector<Studentas>& grupe, string filename);
 void failoIrasymas(vector<Studentas>& grupe, int partPoint);
 int partitionIrSort(vector<Studentas>& grupe, bool rusiavimasChoice);
 bool varduPalyginimas(const Studentas& a, const Studentas& b);

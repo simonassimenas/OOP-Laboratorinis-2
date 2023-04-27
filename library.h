@@ -98,10 +98,10 @@ public:
     
     // ==MOVE KONSTRUKTORIUS==
     Studentas(const Studentas&& source) {
-        mVardas = move(source.mVardas);
-        mPavarde = move(source.mPavarde);
-        mGalutinisVid = move(source.mGalutinisVid);
-        mGalutinisMed = move(source.mGalutinisMed);
+        mVardas = std::move(source.mVardas);
+        mPavarde = std::move(source.mPavarde);
+        mGalutinisVid = std::move(source.mGalutinisVid);
+        mGalutinisMed = std::move(source.mGalutinisMed);
     }
 
 
@@ -186,10 +186,10 @@ public:
         if (this == &source)
             return *this;
         
-        mVardas = move(source.mVardas);
-        mPavarde = move(source.mPavarde);
-        mGalutinisVid = move(source.mGalutinisVid);
-        mGalutinisMed = move(source.mGalutinisMed);
+        mVardas = std::move(source.mVardas);
+        mPavarde = std::move(source.mPavarde);
+        mGalutinisVid = std::move(source.mGalutinisVid);
+        mGalutinisMed = std::move(source.mGalutinisMed);
         return *this;
     }
 

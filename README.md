@@ -450,7 +450,7 @@ Kadangi šioje programoje klasės objektai nėra kopijuojami, perkeliami ar trin
 
 ## Base ir derived klasės
 
-Sukurta bazinė klasė žmogus turinti vardą ir pavardę bei virualias funkcijas, kurios gali būti perrašytos išvestinės klasės. Studento klasė dabar yra išvestinė žmogaus klasė.
+Sukurta bazinė abstrakti klasė žmogus turinti vardą ir pavardę bei virualias funkcijas, kurios gali būti perrašytos išvestinės klasės. Studento klasė dabar yra išvestinė žmogaus klasė.
 
 Virtualus studento klasės detruktorius pasirūpina, kad ištrinant studento klasės objektą būtų ištrintas ir bazinės žmogaus klasės susijęs objektas.
 

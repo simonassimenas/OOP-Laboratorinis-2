@@ -97,7 +97,7 @@ public:
     }
     
     // ==MOVE KONSTRUKTORIUS==
-    Studentas(const Studentas& source) {
+    Studentas(const Studentas&& source) {
         mVardas = move(source.mVardas);
         mPavarde = move(source.mPavarde);
         mGalutinisVid = move(source.mGalutinisVid);

@@ -447,3 +447,11 @@ Destruktorius atlaisvina dinamiškai priskirtą vietą Heap'e.
 #### Pastaba
 
 Kadangi šioje programoje klasės objektai nėra kopijuojami, perkeliami ar trinami šie metodai nėra panaudojami.
+
+## Base ir derived klasės
+
+Sukurta bazinė klasė žmogus turinti vardą ir pavardę bei virualias funkcijas, kurios gali būti perrašytos išvestinės klasės. Studento klasė dabar yra išvestinė žmogaus klasė.
+
+Virtualus studento klasės detruktorius pasirūpina, kad ištrinant studento klasės objektą būtų ištrintas ir bazinės žmogaus klasės susijęs objektas.
+
+Kintamieji mVardas ir mPavarde žmogaus klasėje deklaruoti kaip "protected", kad išvestinės klasės galėtų pasiekti šiuos kintamuosius, tačiau jie nebūtų pasiekiami už klasės.

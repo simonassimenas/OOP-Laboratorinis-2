@@ -70,16 +70,36 @@ using std::ostream;
 using std::ios;
 
 
-class Studentas {
-private:
+class Zmogus {
+protected:
     string mVardas;
     string mPavarde;
+
+public:
+    // ==KONSTRUKTORIUS
+    Zmogus() : mVardas(""), mPavarde("") {}
+
+    // ==GETTERIAI==
+    string getVardas() const { return mVardas; }
+    string getPavarde() const { return mPavarde; }
+
+    // ==SETTERIAI==
+    virtual void setVardas(const string& vardas) { mVardas = vardas; }
+    virtual void setPavarde(const string& pavarde) { mPavarde = pavarde; }
+
+    // ==DESTRUKTORIUS==
+    ~Zmogus() {}
+
+};
+
+class Studentas : public Zmogus {
+private:
     double mGalutinisVid;
     double mGalutinisMed;
 
 public:
     // ==KONSTRUKTORIAI
-    Studentas() : mVardas(""), mPavarde(""), mGalutinisVid(0), mGalutinisMed(0) {}
+    Studentas() : mGalutinisVid(0), mGalutinisMed(0) {}
     Studentas(string vardas, string pavarde, vector<int>& pazVec, int egzaminas) {
         mVardas = vardas;
         mPavarde = pavarde;
@@ -113,8 +133,8 @@ public:
     
 
     // ==SETTERIAI==
-    void setVardas(const string& vardas) { mVardas = vardas; }
-    void setPavarde(const string& pavarde) { mPavarde = pavarde; }
+    void setVardas(const string& vardas) override { mVardas = vardas; }
+    void setPavarde(const string& pavarde) override { mPavarde = pavarde; }
     void setGalutinisVid(const double& galutinisVid) { mGalutinisVid = galutinisVid; }
     void setGalutinisMed(const double& galutinisMed) { mGalutinisMed = galutinisMed; }
 
@@ -194,8 +214,9 @@ public:
     }
 
     // ==DESTRUKTORIUS==
-    ~Studentas() {}
+    virtual ~Studentas() {}
 };
+
 
 void failoSkaitymas(vector<Studentas>& grupe, string filename);
 void failoIrasymas(vector<Studentas>& grupe, int partPoint);

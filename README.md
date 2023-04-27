@@ -1,7 +1,7 @@
 
 # OOP - Antras laboratorinis darbas
 
-## v1.2
+## v1.5
 
 ## Aprašymas
 

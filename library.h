@@ -84,8 +84,8 @@ public:
     string getPavarde() const { return mPavarde; }
 
     // ==SETTERIAI==
-    virtual void setVardas(const string& vardas) { mVardas = vardas; }
-    virtual void setPavarde(const string& pavarde) { mPavarde = pavarde; }
+    virtual void setVardas(const string& vardas) = 0;
+    virtual void setPavarde(const string& pavarde) = 0;
 
     // ==DESTRUKTORIUS==
     ~Zmogus() {}

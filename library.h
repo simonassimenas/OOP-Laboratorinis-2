@@ -83,10 +83,27 @@ public:
     Studentas(string vardas, string pavarde, vector<int>& pazVec, int egzaminas) {
         mVardas = vardas;
         mPavarde = pavarde;
-        mGalutinisVid = skaiciuotiVidurki(pazVec, egzaminas);
-        mGalutinisMed = skaiciuotiMediana(pazVec, egzaminas);
+        skaiciuotiVidurki(pazVec, egzaminas);
+        skaiciuotiMediana(pazVec, egzaminas);
         pazVec.clear();
     }
+
+    // ==COPY KONSTRUKTORIUS==
+    Studentas(const Studentas& source) {
+            mVardas = source.mVardas;
+            mPavarde = source.mPavarde;
+            mGalutinisVid = source.mGalutinisVid;
+            mGalutinisMed = source.mGalutinisMed;
+    }
+    
+    // ==MOVE KONSTRUKTORIUS==
+    Studentas(const Studentas& source) {
+        mVardas = move(source.mVardas);
+        mPavarde = move(source.mPavarde);
+        mGalutinisVid = move(source.mGalutinisVid);
+        mGalutinisMed = move(source.mGalutinisMed);
+    }
+
 
     // ==GETTERIAI==
     string getVardas() const { return mVardas; }
@@ -94,35 +111,32 @@ public:
     double getGalutinisVid() const { return mGalutinisVid; }
     double getGalutinisMed() const { return mGalutinisMed; }
     
+
     // ==SETTERIAI==
     void setVardas(const string& vardas) { mVardas = vardas; }
     void setPavarde(const string& pavarde) { mPavarde = pavarde; }
     void setGalutinisVid(const double& galutinisVid) { mGalutinisVid = galutinisVid; }
     void setGalutinisMed(const double& galutinisMed) { mGalutinisMed = galutinisMed; }
 
-    // ==METODAI==
-    double skaiciuotiVidurki(vector<int>& pazVec, int& egzaminas) {
-        double galutinisVid = 0.0;
-        galutinisVid = (0.4 * (accumulate(pazVec.begin(), pazVec.end(), 0) / pazVec.size())) + (0.6 * egzaminas);
 
-        return galutinisVid;
+    // ==METODAI==
+    void skaiciuotiVidurki(const vector<int>& pazVec, int& egzaminas) {
+        mGalutinisVid = (0.4 * (accumulate(pazVec.begin(), pazVec.end(), 0) / pazVec.size())) + (0.6 * egzaminas);
     }
 
-    double skaiciuotiMediana(vector<int>& pazVec, int& egzaminas) {
-        int size = pazVec.size();
-        double galutinisMed = 0.0;
 
+    void skaiciuotiMediana(vector<int>& pazVec, int& egzaminas) {
+        int size = pazVec.size();
         sort(pazVec.begin(), pazVec.end());
 
         if (size % 2 == 0)
-            galutinisMed = (0.4 * (double)((pazVec[size/2 - 1] + pazVec[size/2]) / 2) + 0.6 * egzaminas);
+            mGalutinisMed = (0.4 * (double)((pazVec[size/2 - 1] + pazVec[size/2]) / 2) + 0.6 * egzaminas);
         else
-            galutinisMed = (0.4 * pazVec[size / 2]) + (0.6 * egzaminas);
-
-        return galutinisMed;
+            mGalutinisMed = (0.4 * pazVec[size / 2]) + (0.6 * egzaminas);
     }
 
-    friend istream& operator>>(istream& input, vector<Studentas>& g) {
+    // ==IVESTIES OPERATORIUS==
+    friend istream& operator>>(istream& input, vector<Studentas>& group) {
         string vardas, pavarde, line;
         vector<int> pazVec;
         int pazymys;
@@ -142,17 +156,45 @@ public:
         int egzaminas = pazVec.back();
         pazVec.pop_back();
 
-        g.emplace_back(vardas, pavarde, pazVec, egzaminas);
+        group.emplace_back(vardas, pavarde, pazVec, egzaminas);
 
         return input;
     }
 
-    friend ostream& operator<<(ostream& output, const Studentas& s) {
-        output << left << setw(15) << s.mVardas << setw(21) << s.mPavarde
-            << setw(19) << fixed << setprecision(2) << s.mGalutinisVid
-            << setw(20) << fixed << setprecision(2) << s.mGalutinisMed << "\n";
+    // ==ISVESTIES OPERATIORIUS==
+    friend ostream& operator<<(ostream& output, const Studentas& student) {
+        output << left << setw(15) << student.mVardas << setw(21) << student.mPavarde
+            << setw(19) << fixed << setprecision(2) << student.mGalutinisVid
+            << setw(20) << fixed << setprecision(2) << student.mGalutinisMed << "\n";
         return output;
     }
+
+    // ==COPY ASSIGNMENT OPERATORIUS
+    Studentas& operator=(const Studentas& source) {
+        if (this == &source)
+            return *this;
+
+        mVardas = source.mVardas;
+        mPavarde = source.mPavarde;
+        mGalutinisVid = source.mGalutinisVid;
+        mGalutinisMed = source.mGalutinisMed;
+        return *this;
+    }
+
+    // ==MOVE ASSIGNMENT OPERATORIUS
+    Studentas& operator=(Studentas&& source) {
+        if (this == &source)
+            return *this;
+        
+        mVardas = move(source.mVardas);
+        mPavarde = move(source.mPavarde);
+        mGalutinisVid = move(source.mGalutinisVid);
+        mGalutinisMed = move(source.mGalutinisMed);
+        return *this;
+    }
+
+    // ==DESTRUKTORIUS==
+    ~Studentas() {}
 };
 
 void failoSkaitymas(vector<Studentas>& grupe, string filename);

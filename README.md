@@ -427,3 +427,23 @@ Prielaida nepasiteisino, kadangi greičiausiai kodas veikė su -O2 vėliavėle.
 Taip pat galime pastebėti, kad vienintelis didelis pasikeitimas buvo nenaudojant jokios optimizavimo vėliavėlės. Nenaudojant failo dydis išaugo daugiau nei 3 kartus, o programos veikimo laikas išaugo apie 4 kartus.
 
 Įdomu tai, jog naudojant skirtingas optimizavimo vėliavėles failo dydis buvo beveik identiškas, o programos veikimo laikas taip pat labai panašus.
+
+## "Rule of five"
+
+Klasėje pridėti konstruktoriai bei operatoriai skirti reikšmių priskirimui naujam klasės objektui bei destruktorius.
+
+### Copy - konstruktorius / operatorius
+
+"Copy" konstruktorius inicijuoja naują klasės objektą. Priskirimo operatorius "=" priskiria reikšmes iš "source" objekto naujam objektui ir sugrąžina naują objektą.
+
+### Move - konstruktorius / operatorius
+
+"Move" konstruktorius inicijuoja naują klasės objektą. Priskirimo operatorius "=" priskiria r-reikšmės nuorodą iš "source" objekto naujam objektui ir sugrąžina naują objektą. Pagrindinis skirtimas - naudojant "std::move" reikšmės nėra tiesiogiai kopijuojamos, o perkeliamos (naujam objektui perduodami seno objekto resursai, o ne kuriami nauji ir trinami seni).
+
+### Destruktorius
+
+Destruktorius atlaisvina dinamiškai priskirtą vietą Heap'e.
+
+#### Pastaba
+
+Kadangi šioje programoje klasės objektai nėra kopijuojami, perkeliami ar trinami šie metodai nėra panaudojami.

@@ -88,7 +88,7 @@ public:
     virtual void setPavarde(const string& pavarde) = 0;
 
     // ==DESTRUKTORIUS==
-    ~Zmogus() {}
+    virtual ~Zmogus() {}
 
 };
 
@@ -214,7 +214,7 @@ public:
     }
 
     // ==DESTRUKTORIUS==
-    virtual ~Studentas() {}
+    ~Studentas() {}
 };
 
 

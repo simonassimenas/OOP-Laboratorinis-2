@@ -25,7 +25,7 @@ void failoSkaitymas(vector<Studentas>& grupe, string filename) {
             while (fin >> grupe) {
                 if (grupe.size() == grupe.capacity())
                     grupe.reserve(talpa*100);
-            };
+            }
             grupe.shrink_to_fit();
 
             fin.close();
@@ -34,7 +34,7 @@ void failoSkaitymas(vector<Studentas>& grupe, string filename) {
             auto pabaigaSkait = high_resolution_clock::now();
             cout << "Duomenys nuskaityti\n";
 
-            std::chrono::duration<double> diffSkait = pabaigaSkait - pradzia;
+            duration<double> diffSkait = pabaigaSkait - pradzia;
             cout << "\nSkaitymas truko " << diffSkait.count() << " sekundes.\n\n";
         }
     }

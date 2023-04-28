@@ -89,7 +89,6 @@ public:
 
     // ==DESTRUKTORIUS==
     virtual ~Zmogus() {}
-
 };
 
 class Studentas : public Zmogus {

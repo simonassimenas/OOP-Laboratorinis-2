@@ -459,3 +459,7 @@ Kintamieji mVardas ir mPavarde žmogaus klasėje deklaruoti kaip "protected", ka
 ## Dokumentacija
 
 Pridėta automatiškai sukurta dokumentacija naudojant "Doxygen" programą.
+
+## Testavimas
+
+Naudojamas framework'as "Catch2" su kuriuo atlikti keli unit testai išbandantys klasės metodų, konstruktorių ir funkcijų veikimą.

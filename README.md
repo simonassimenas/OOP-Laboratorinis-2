@@ -1,5 +1,5 @@
 
-# OOP - Antras laboratorinis darbas
+# OOP - Antro laboratorinio darbo aprašas
 
 ## v2.0
 
@@ -455,3 +455,7 @@ Sukurta bazinė abstrakti klasė žmogus turinti vardą ir pavardę bei virualia
 Virtualus studento klasės detruktorius pasirūpina, kad ištrinant studento klasės objektą būtų ištrintas ir bazinės žmogaus klasės susijęs objektas.
 
 Kintamieji mVardas ir mPavarde žmogaus klasėje deklaruoti kaip "protected", kad išvestinės klasės galėtų pasiekti šiuos kintamuosius, tačiau jie nebūtų pasiekiami už klasės.
+
+## Dokumentacija
+
+Pridėta automatiškai sukurta dokumentacija naudojant "Doxygen" programą.

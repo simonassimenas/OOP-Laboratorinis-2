@@ -1,5 +1,6 @@
 #include "library.h"
 
+/// @brief Pagrindinė funkcija kontroliuojanti programą ir pasirinkimus.
 int main() {
     vector<Studentas> grupe;
 

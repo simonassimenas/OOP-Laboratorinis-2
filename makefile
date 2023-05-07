@@ -2,7 +2,7 @@ CXX = g++
 CXXFLAGS = -std=c++20 -march=native -O3
 INSTALL_PATH = "./"
 
-SRC_FILES = main.cpp addFunctions.cpp
+SRC_FILES = main.cpp functions.cpp
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
 BIN_FILES = main
 
@@ -10,7 +10,7 @@ BIN_FILES = main
 
 all: $(BIN_FILES)
 
-$(BIN_FILES): %: %.o addFunctions.o
+$(BIN_FILES): %: %.o functions.o
 	$(CXX) $(CXXFLAGS) $^ -o $@
 
 %.o: %.cpp

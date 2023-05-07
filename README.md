@@ -464,6 +464,6 @@ Pridėta automatiškai sukurta dokumentacija naudojant "Doxygen" programą.
 
 Naudojamas framework'as "Catch2" su kuriuo atlikti keli unit testai išbandantys klasės metodų, konstruktorių ir funkcijų veikimą.
 
-## Idiegimas
+## Įdiegimas
 
 Sukurtas paketas, kurį įdiegus galima pasileisti programą bei panorėjus - išdiegti.

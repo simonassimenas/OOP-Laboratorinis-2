@@ -1,7 +1,7 @@
 #define CATCH_CONFIG_MAIN
 
-#include "library.h"
-#include "functions.cpp"
+#include "../library.h"
+#include "../functions.cpp"
 #include "catch.hpp"
 
 

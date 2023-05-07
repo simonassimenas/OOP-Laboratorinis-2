@@ -19,8 +19,11 @@ $(BIN_FILES): %: %.o addFunctions.o
 install: all
 	install $(BIN_FILES) $(INSTALL_PATH)
 
+test:
+	g++ -std=c++20 -Iincludes -o tests test.cpp && ./tests
+
 clean:
-	rm -f $(BIN_FILES) $(OBJ_FILES) vargsai.txt saunuoliai.txt
+	rm -f $(BIN_FILES) $(OBJ_FILES) vargsai.txt saunuoliai.txt tests
 
 cleanf:
 	rm -f $(BIN_FILES) $(OBJ_FILES)
